@@ -1,0 +1,2 @@
+# PythonEveryday
+always pythonic
