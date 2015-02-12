@@ -10,6 +10,7 @@ the following code will
          line = re.sub('[^\w ]','', line)
 '''
 
+
 def countWords():
     dict = {}
     file_path = os.path.abspath(os.path.join(BASE_PATH, "..", "assets", "article.txt"))
