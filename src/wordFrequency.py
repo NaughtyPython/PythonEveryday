@@ -7,7 +7,7 @@ diary_path = os.path.join(BASE_PATH, "..","assets","diary")
 '''
 Function: read string in article.txt and count the words with a dict output
 use re.sub to replace all unmatched chars in line
-the following code will 
+the following code will replace all non-word chacter with ' '
 
          line = re.sub('[^\w ]','', line)
 '''
@@ -18,12 +18,20 @@ Algorithm:
     TF: Term Frequency
     TF(t) = (Number of times term t appears in a document) / (Total number of terms in the document).
 
+    countWords()/total_term_number
+
+
     IDF: Inverse Document Frequency, 
     IDF(t) = log_e(Total number of documents / Number of documents with term t in it).
+
+    total_doc/number_doc_with_term
 '''
 
 
 def countWords(file_path):
+    '''
+    Number of times term t appears in a document
+    '''
     dict = {}
 
     with open(file_path) as f:
@@ -39,6 +47,10 @@ def countWords(file_path):
 
 
 def get_total_term_number(file_path):
+
+    '''
+        Total number of terms in the document
+    '''
     count = 0
     with open(file_path) as f:
         for line in list(f):
@@ -49,9 +61,7 @@ def get_total_term_number(file_path):
     return count
 
 
-if __name__ == "__main__":
-#     file_path = os.path.abspath(os.path.join(BASE_PATH, "..", "assets", "article.txt"))
-
+def getKeywords(howmany=3):
     total_doc = len(os.listdir(diary_path))
     # To store all of the term and its computing result for comparison between them later
     # total_dict: key is the filename , value is the dict of each file
@@ -85,5 +95,10 @@ if __name__ == "__main__":
             sorted_list = sorted(each_dict.items(), key=itemgetter(1), reverse=True)
             print each_dict
             # Select the first three keywords with highest values
-            for howmany in range(3):
-                print "keyword: %s Result:%s" % (sorted_list[howmany][0],sorted_list[howmany][1]) 
+            for k in range(howmany):
+                print "keyword: %s Result:%s" % (sorted_list[k][0],sorted_list[k][1]) 
+
+
+if __name__ == "__main__":
+    getKeywords(4)
+    

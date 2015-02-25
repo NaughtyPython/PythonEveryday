@@ -49,15 +49,16 @@ def insert_mongodb(dict):
 
 # def insert_mysql():
 #     cnx = mysql.connector.connect(user='angela', db='test_mysql')
-#     
-#     
+
+
 if __name__ == "__main__":
 
     code_list = []
     for id in range(200):
         code_dict = {}
         final_code, key = activation_code(id)
+        print final_code, key
         code_dict['id'] = key
         code_dict['code'] = final_code
         code_list.append(code_dict)
-    insert_mongodb(code_list)
+#     insert_mongodb(code_list)
