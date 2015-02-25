@@ -47,10 +47,10 @@ def insert_mongodb(dict):
 #     db.test_collection.remove()
 
 
-def insert_mysql():
-    cnx = mysql.connector.connect(user='angela', db='test_mysql')
-    
-    
+# def insert_mysql():
+#     cnx = mysql.connector.connect(user='angela', db='test_mysql')
+#     
+#     
 if __name__ == "__main__":
 
     code_list = []
