@@ -7,9 +7,9 @@ worksheet = workbook.add_worksheet()
 
 
 with open(stu_path) as f:
-    dict = f.read()
+    s = f.read()
     import ast
-    dict = ast.literal_eval(dict)
+    dict = ast.literal_eval(s)
     row = 0
     for key in dict.keys():
         row = row + 1
